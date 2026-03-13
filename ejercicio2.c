@@ -24,7 +24,7 @@ void inicializar (PILA *s) {
 s->cnt = 0;
 s->tope = NULL;
 }
-void push(PILA *s, DATA x);
+void push(PILA *s, DATA x);{
 ELEMENTO *nuevo = (ELEMENTO*)malloc(sizeof(ELEMENTO));
 nuevo->d = x; 
 nuevo->siguiente = s->tope;
@@ -32,7 +32,7 @@ s->tope = nuevo;
 s->cnt++;
 }
 
-DATA pop(PILA *s);
+DATA pop(PILA *s); {
 int (estavacia(s)){
 return '\0';
 }
@@ -43,7 +43,7 @@ free(aux);
 s->cnt--;
 return valor;
 }
-int estavacia(PILA *s);
+int estavacia(PILA *s);{
 return s->cnt == 0;
 }
 /**
