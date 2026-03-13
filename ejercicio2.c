@@ -20,11 +20,32 @@ typedef struct {
 } PILA;
 
 // --- Funciones de Pila (A completar por el alumno) ---
-void inicializar(PILA *s);
+void inicializar (PILA *s) { 
+s->cnt = 0;
+s->tope = NULL;
+}
 void push(PILA *s, DATA x);
-DATA pop(PILA *s);
-int estavacia(PILA *s);
+ELEMENTO *nuevo = (ELEMENTO*)malloc(sizeof(ELEMENTO));
+nuevo->d = x; 
+nuevo->siguiente = s->tope;
+s->tope = nuevo;
+s->cnt++;
+}
 
+DATA pop(PILA *s);
+int (estavacia(s)){
+return '\0';
+}
+ELEMENTO *aux = s->tope;
+DATA valor = aux->d;
+s->tope = aux->siguiente;
+free(aux);
+s->cnt--;
+return valor;
+}
+int estavacia(PILA *s);
+return s->cnt == 0;
+}
 /**
  * TAREA PRINCIPAL: Determinar si la cadena es palíndromo.
  * Estrategia sugerida:
@@ -46,14 +67,24 @@ int esPalindromo(char cadena[]) {
             push(&original, letra);
         }
     }
-
+in esPalindrimo = 1
+if (original.cnt != invertida.cnt)
+{ esPalindromo = 0; 
+} else { 
     // 2. Crear la versión invertida
     // TIP: Al pasar elementos de una pila a otra, el orden se invierte.
     // Pero para comparar, necesitamos que una mantenga el orden original.
     // ¿Cómo usarías las dos pilas para tener la cadena al derecho y al revés?
     
     /* TODO: Implementar lógica de comparación usando las dos pilas */
-
+while (!estavacia(&original) & & !estavacia(&invertida)) {
+    char cOriginal = pop(&invertida);
+    if ((cOriginal != cInvertida) { 
+        es Palindromo = 0;
+        break; 
+    }
+}
+}
     return 1; // Retornar 1 si es palíndromo, 0 si no.
 }
 
