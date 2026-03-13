@@ -15,19 +15,23 @@
 // Funcion inicializar
 void inicializar(PILA *stk) {
     /* TODO: 
-       1. Inicializar el contador de elementos (cnt) a 0.
-       2. Inicializar el puntero al tope a NULL. 
+       stk->cnt = 0;
+       stk->tope = NULL;
     */
 }
 
 // Funcion push
 void push(PILA *stk, DATO x) {
     /* TODO: 
-       1. Declarar un puntero a ELEMENTO y asignar memoria con malloc.
-       2. Asignar el dato 'x' al nuevo elemento.
-       3. Hacer que el nuevo elemento apunte al actual tope de la pila.
-       4. Actualizar el tope de la pila para que sea el nuevo elemento.
-       5. Incrementar el contador (cnt).
+       ELEMENTO *nuevo = (ELEMENTO*)malloc(sizeoff(ELEMENTO));
+       if (nuevo == NULL) {
+       printf("ERROR: DESBORDAMIENTO DE MEMORIA\n");
+       exit(1);
+       }
+       nuevo->dato = x;
+       nuevo->siguiente = stk->tope;
+       stk->tope = nuevo;
+       stk->cnt++;
     */
 }
 
@@ -38,13 +42,14 @@ DATO pop(PILA *stk) {
         exit(1); 
     }
     /* TODO: 
-       1. Declarar una variable DATO para el valor de retorno.
-       2. Declarar un puntero ELEMENTO temporal para el nodo a eliminar.
-       3. Guardar el dato del tope en la variable DATO.
-       4. Hacer que el tope de la pila apunte al siguiente elemento.
-       5. Decrementar el contador (cnt).
-       6. Liberar la memoria (free) del nodo temporal.
-       7. Retornar el dato.
+        DATO valor_retorno;
+        ELEMENTO *temp;
+        temp = stk->tope;
+        valor_retorno = temp->dato;
+        stk->tope = temp->siguiente;
+        stk->cnt--;
+        free(temp);
+        retunr valor_retorno;
     */
 }
 
