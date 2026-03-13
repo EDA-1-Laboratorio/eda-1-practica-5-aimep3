@@ -2,7 +2,7 @@
  * Objetivo: Completar las primitivas de la pila para evaluación de RPN.
  */
 
-#include "pilas.h"
+#include <pilas.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -14,25 +14,23 @@
 
 // Funcion inicializar
 void inicializar(PILA *stk) {
-    /* TODO: 
+    TODO: 
        stk->cnt = 0;
        stk->tope = NULL;
-    */
 }
 
 // Funcion push
 void push(PILA *stk, DATO x) {
-    /* TODO: 
-       ELEMENTO *nuevo = (ELEMENTO*)malloc(sizeoff(ELEMENTO));
+    TODO: 
+       ELEMENTO *nuevo = (ELEMENTO*)malloc(sizeof(ELEMENTO));
        if (nuevo == NULL) {
        printf("ERROR: DESBORDAMIENTO DE MEMORIA\n");
        exit(1);
        }
-       nuevo->dato = x;
+       nuevo->d = x;
        nuevo->siguiente = stk->tope;
        stk->tope = nuevo;
        stk->cnt++;
-    */
 }
 
 // Funcion pop
@@ -41,28 +39,27 @@ DATO pop(PILA *stk) {
         printf("ERROR: Intento de POP en pila vacia (Stack Underflow)\n");
         exit(1); 
     }
-    /* TODO: 
+        TODO: 
         DATO valor_retorno;
         ELEMENTO *temp;
         temp = stk->tope;
-        valor_retorno = temp->dato;
+        valor_retorno = temp->d;
         stk->tope = temp->siguiente;
         stk->cnt--;
         free(temp);
-        retunr valor_retorno;
-    */
+        return valor_retorno;
 }
 
 // Funcion estavacia
 BOOLEAN estavacia(PILA *stk) {
     /* TODO: Retornar VERDADERO si el contador es 0, FALSO de lo contrario. */
-    return FALSE; 
+    return FALSO; 
 }
 
 // Funcion estallena
 BOOLEAN estallena(PILA *stk) {
     /* TODO: Retornar VERDADERO si el contador es igual a FULL. */
-    return FALSE;
+    return FALSO;
 }
 
 // =========================================================
@@ -139,7 +136,6 @@ int evaluar(PILA *polaca) {
                 d2 = pop(&evaluacion); 
                 d1 = pop(&evaluacion);
                 d.tipo = VALOR; // El resultado será un VALOR.
-                
                 switch (d.u.op) { 
                     case '+': d.u.val = d1.u.val + d2.u.val; break;
                     case '-': d.u.val = d1.u.val - d2.u.val; break;
