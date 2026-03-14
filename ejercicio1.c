@@ -53,13 +53,13 @@ DATO pop(PILA *stk) {
 // Funcion estavacia
 BOOLEAN estavacia(PILA *stk) {
     /* TODO: Retornar VERDADERO si el contador es 0, FALSO de lo contrario. */
-    return FALSO; 
+    return (stk->cnt == 0);
 }
 
 // Funcion estallena
 BOOLEAN estallena(PILA *stk) {
     /* TODO: Retornar VERDADERO si el contador es igual a FULL. */
-    return FALSO;
+    return (stk->cnt == FULL);
 }
 
 // =========================================================
